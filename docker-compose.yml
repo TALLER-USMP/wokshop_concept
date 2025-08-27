@@ -8,9 +8,11 @@ services:
     ports:
       - "7071:7071"
     environment:
-      - FUNCTIONS_WORKER_RUNTIME=node
-      - AzureWebJobsScriptRoot=/home/site/wwwroot
-      - AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+      - FUNCTIONS_WORKER_RUNTIME=${FUNCTIONS_WORKER_RUNTIME:-node}
+      - AzureWebJobsScriptRoot=${AzureWebJobsScriptRoot:-/home/site/wwwroot}
+      - AzureFunctionsJobHost__Logging__Console__IsEnabled=${AzureFunctionsJobHost__Logging__Console__IsEnabled:-true}
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
     volumes:
       - ./backend/src:/home/site/wwwroot/src
       - ./backend/local.settings.docker.json:/home/site/wwwroot/local.settings.json
