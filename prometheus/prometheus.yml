@@ -1,0 +1,42 @@
+# Configuración global de Prometheus
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# Configuración de alertas
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Archivos de reglas
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# Configuración de scraping
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          app: "prometheus"
+
+  # Azure Functions Backend
+  - job_name: 'azure_functions'
+    metrics_path: /api/metrics
+    static_configs:
+      - targets: ['backend:7071']
+        labels:
+          app: "silabos-backend"
+          environment: "development"
+
+  # Frontend Nginx (si se configuran métricas)
+  - job_name: 'frontend'
+    static_configs:
+      - targets: ['frontend:80']
+        labels:
+          app: "silabos-frontend"
+          environment: "development"
