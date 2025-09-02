@@ -13,9 +13,19 @@ env:
 
 jobs:
   build-and-deploy:
-    runs-on: [self-hosted, Linux, X64]    
+    runs-on: [self-hosted, Linux, X64]   
     
     steps:
+      - name: Debug Runner Info
+        run: |
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner architecture: $RUNNER_ARCH"
+          echo "Working directory: $(pwd)"
+          whoami
+          uname -a
+        shell: bash
+
       # 1️⃣ Descargar el código
       - name: Checkout repository
         uses: actions/checkout@v4
