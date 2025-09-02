@@ -13,7 +13,7 @@ env:
 
 jobs:
   build-and-deploy:
-    runs-on: self-hosted   # 👈 Ahora corre en tu runner Ubuntu
+    runs-on: [self-hosted, jean]  # 👈 Ahora corre en tu runner Ubuntu
 
     steps:
       # 1️⃣ Descargar el código
