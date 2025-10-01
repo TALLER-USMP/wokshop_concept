@@ -26,3 +26,5 @@ feat 12.08.00001 : Se agregó endpoint de métricas en usuarios
 feat 13.08.00002 : Se modificó el endpoint de métricas en usuarios para manejos individuales
 style 14.08.00003 : Se estandarizaron los estilos de los card
 
+Ya no se usara el formato se simplificara solo por tipo y problema
+
