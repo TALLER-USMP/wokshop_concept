@@ -1,5 +1,5 @@
 # 🧪 POC – Prueba de Contexto
-
+# Integración con Slack
 Este repositorio contiene una **Prueba de Concepto (POC)** cuyo objetivo es demostrar y validar ciertas funcionalidades en un entorno controlado antes de implementarlas en el proyecto real.
 
 ## ⚙️ Objetivo
